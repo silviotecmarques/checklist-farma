@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Checklist Farma</title>
+
+   <link rel="stylesheet"
+      href="style/style-login.css">
+
+</head>
+<body>
+
+        <div class="login-container">
+        <div class="login-card">
+
+            <h1>CHECKLIST FARMA</h1>
+
+            <p>Controle Diário de Atividades</p>
+
+            <div class="form-group">
+
+                <label>Funcionário</label>
+
+                <select id="funcionario">
+
+                    <option value="">
+                        Selecione...
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Senha</label>
+
+                <input
+                    type="password"
+                    id="senha"
+                    placeholder="Digite sua senha">
+
+            </div>
+
+            <button id="btnLogin">
+
+                Entrar
+
+            </button>
+
+            <hr>
+
+            <button
+                id="btnGerente"
+                class="gerente-btn">
+
+                Acesso Gerente
+
+            </button>
+
+            <p id="mensagem"></p>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL GERENTE -->
+
+    <div id="modalGerente" class="modal">
+
+        <div class="modal-content">
+
+                <h2>
+
+                    Acesso Gerencial
+            
+                </h2>
+
+            <input
+                type="password"
+                id="senhaGerente"
+                placeholder="Digite a senha do gerente">
+
+            <div class="modal-buttons">
+
+                <button id="btnEntrarGerente">
+
+                    Entrar
+
+                </button>
+
+                <button id="btnFecharModal">
+
+                    Cancelar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

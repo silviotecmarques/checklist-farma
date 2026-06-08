@@ -1,0 +1,459 @@
+const lista =
+document.getElementById(
+"listaChecklists"
+);
+
+
+
+async function carregarChecklists(){
+
+lista.innerHTML =
+"Carregando...";
+
+const filtro =
+document.getElementById(
+    "filtroData"
+).value;
+
+let query =
+supabaseClient
+.from("checklists")
+.select("*");
+
+const hoje =
+new Date();
+
+if(
+    filtro === "hoje"
+){
+
+    query =
+    query.eq(
+        "data_checklist",
+        hoje
+        .toISOString()
+        .split("T")[0]
+    );
+
+}
+
+if(
+    filtro === "ontem"
+){
+
+    hoje.setDate(
+        hoje.getDate() - 1
+    );
+
+    query =
+    query.eq(
+        "data_checklist",
+        hoje
+        .toISOString()
+        .split("T")[0]
+    );
+
+}
+
+if(
+    filtro === "7dias"
+){
+
+    hoje.setDate(
+        hoje.getDate() - 7
+    );
+
+    query =
+    query.gte(
+        "data_checklist",
+        hoje
+        .toISOString()
+        .split("T")[0]
+    );
+
+}
+
+const { data, error } =
+await query.order(
+    "created_at",
+    {
+        ascending:false
+    }
+);
+
+if(error){
+
+    console.error(error);
+
+    lista.innerHTML =
+    "Erro ao carregar.";
+
+    return;
+
+}
+
+lista.innerHTML = "";
+
+data.forEach(item => {
+
+    const card =
+    document.createElement(
+        "div"
+    );
+
+    card.className =
+"card-checklist";
+
+    card.innerHTML = `
+
+<h3>
+    ${item.funcionario_nome}
+</h3>
+
+<p>
+    Cargo: ${item.cargo}
+</p>
+
+<p>
+    Data: ${item.data_checklist}
+</p>
+
+<p>
+    Hora: ${item.hora_checklist}
+</p>
+
+${
+item.cargo.toLowerCase().includes("farm")
+?
+
+`
+<p>
+    Vitaminas:
+    ${item.vitaminas_vendidas}
+</p>
+
+<p>
+    Meta Genéricos:
+    ${item.meta_genericos}
+</p>
+`
+
+:
+
+""
+}
+
+<div class="card-botoes">
+
+    <button
+    class="btn-detalhes"
+    onclick='verDetalhes(${JSON.stringify(item)})'>
+
+        Detalhes
+
+    </button>
+
+    <button
+    class="btn-pdf"
+    onclick='gerarPDFIndividual(${JSON.stringify(item)})'>
+
+        PDF
+
+    </button>
+
+</div>
+
+`;
+
+    lista.appendChild(
+        card
+    );
+
+});
+
+}
+
+function verDetalhes(item){
+
+const modal =
+document.getElementById(
+    "modalDetalhes"
+);
+
+const conteudo =
+document.getElementById(
+    "conteudoDetalhes"
+);
+
+let html = `
+
+<h3>
+    ${item.funcionario_nome}
+</h3>
+
+<p>
+    Cargo: ${item.cargo}
+</p>
+
+<p>
+    Data: ${item.data_checklist}
+</p>
+
+<p>
+    Hora: ${item.hora_checklist}
+</p>
+
+<hr>
+
+`;
+
+if(item.respostas){
+
+    item.respostas.forEach(r => {
+
+        let classe = "";
+
+        if(r.status === "Sim"){
+
+            classe =
+            "detalhe-sim";
+
+        }
+
+        if(r.status === "Parcial"){
+
+            classe =
+            "detalhe-parcial";
+
+        }
+
+        if(r.status === "Nao"){
+
+            classe =
+            "detalhe-nao";
+
+        }
+
+        html += `
+
+        <div class="detalhe-item">
+
+            <strong>
+                ${r.tarefa}
+            </strong>
+
+            <br>
+
+            <span class="${classe}">
+                ${r.status}
+            </span>
+
+            ${
+                r.justificativa
+                ?
+
+                `<br><b>Motivo:</b>
+                ${r.justificativa}`
+
+                :
+
+                ""
+            }
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+conteudo.innerHTML =
+html;
+
+modal.style.display =
+"flex";
+
+}
+
+async function gerarPDFIndividual(item){
+
+const { jsPDF } =
+window.jspdf;
+
+const doc =
+new jsPDF();
+
+let y = 20;
+
+doc.setFontSize(18);
+
+doc.text(
+    "CHECKLIST FARMA",
+    20,
+    y
+);
+
+y += 15;
+
+doc.setFontSize(12);
+
+doc.text(
+    `Funcionario: ${item.funcionario_nome}`,
+    20,
+    y
+);
+
+y += 8;
+
+doc.text(
+    `Cargo: ${item.cargo}`,
+    20,
+    y
+);
+
+y += 8;
+
+doc.text(
+    `Data: ${item.data_checklist}`,
+    20,
+    y
+);
+
+y += 8;
+
+doc.text(
+    `Hora: ${item.hora_checklist}`,
+    20,
+    y
+);
+
+y += 15;
+
+if(item.respostas){
+
+    item.respostas.forEach(r => {
+
+        doc.text(
+            `${r.status} - ${r.tarefa}`,
+            20,
+            y
+        );
+
+        y += 8;
+
+        if(
+            r.justificativa
+        ){
+
+            doc.text(
+                `Motivo: ${r.justificativa}`,
+                25,
+                y
+            );
+
+            y += 8;
+
+        }
+
+        if(y > 270){
+
+            doc.addPage();
+
+            y = 20;
+
+        }
+
+    });
+
+}
+
+if(
+    item.vitaminas_vendidas !== null &&
+    item.vitaminas_vendidas !== undefined
+){
+
+    y += 10;
+
+    doc.text(
+        `Vitaminas Vendidas: ${item.vitaminas_vendidas}`,
+        20,
+        y
+    );
+
+}
+
+if(
+    item.meta_genericos
+){
+
+    y += 8;
+
+    doc.text(
+        `Meta Genericos: ${item.meta_genericos}`,
+        20,
+        y
+    );
+
+}
+
+doc.save(
+    `Checklist-${item.funcionario_nome}.pdf`
+);
+
+}
+
+document
+.getElementById(
+"btnAtualizar"
+)
+.addEventListener(
+"click",
+() => {
+
+    carregarChecklists();
+
+}
+);
+
+document
+.getElementById(
+"fecharDetalhes"
+)
+.addEventListener(
+"click",
+() => {
+
+    document
+    .getElementById(
+        "modalDetalhes"
+    )
+    .style.display =
+    "none";
+
+}
+
+);
+
+const btnLogout =
+document.getElementById(
+"btnLogout"
+);
+
+if(btnLogout){
+
+btnLogout.addEventListener(
+    "click",
+    () => {
+
+        localStorage.clear();
+
+        window.location.href =
+        "../index.html";
+
+    }
+);
+
+}
+
+carregarChecklists();

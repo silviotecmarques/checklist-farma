@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+<title>Checklist Diário</title>
+
+<link rel="stylesheet"
+      href="../style/style-checklist.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="checklist-card">
+
+        <h1 id="nomeFuncionario">
+            Funcionário
+        </h1>
+
+        <h3 id="cargoFuncionario">
+            Cargo
+        </h3>
+
+        <div class="progresso-container">
+
+            <div class="progresso-info">
+
+                <strong>
+                    Progresso:
+                </strong>
+
+            </div>
+
+          <div class="barra">
+
+                <div id="barraProgresso"></div>
+
+                <span id="textoProgresso">
+                        0%
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div id="listaChecklist">
+
+        </div>
+
+        <div class="extras">
+
+            <h2>
+                Fechamento do Turno
+            </h2>
+
+         <div id="blocoMetas">
+
+    <div class="campo">
+
+        <label>
+            Total de Vitaminas / Marcas Exclusivas Vendidas
+        </label>
+
+        <input
+            type="number"
+            id="vitaminasVendidas"
+            min="0"
+            value="0">
+
+    </div>
+
+    <div class="campo">
+
+        <label>
+            Meta de Genéricos Atingida?
+        </label>
+
+        <select id="metaGenericos">
+
+            <option value="">
+                Selecione...
+            </option>
+
+            <option value="Sim">
+                Sim
+            </option>
+
+            <option value="Nao">
+                Não
+            </option>
+
+        </select>
+
+    </div>
+
+</div>   
+
+            <div class="campo">
+
+                <label>
+                    Observações Gerais
+                </label>
+
+                <textarea
+                    id="observacoes"
+                    rows="5"
+                    placeholder="Digite observações do turno..."></textarea>
+
+            </div>
+
+        </div>
+
+        <button id="btnEnviar">
+
+            Enviar
+
+        </button>
+
+        <button id="btnLogout">
+
+        Sair
+
+    </button>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase.js"></script>
+
+<script src="../data/checklists.js"></script>
+
+<script src="../js/checklists.js"></script>
+
+</body>
+
+</html>

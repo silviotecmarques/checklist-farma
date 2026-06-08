@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Painel Gerencial</title>
+
+    <link rel="stylesheet"
+          href="../style/style-gerente.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="barra-topo">
+
+        <select id="filtroData">
+
+            <option value="hoje">
+                Hoje
+            </option>
+
+            <option value="ontem">
+                Ontem
+            </option>
+
+            <option value="7dias">
+                Últimos 7 dias
+            </option>
+
+            <option value="todos">
+                Todos
+            </option>
+
+        </select>
+
+        <button id="btnAtualizar">
+
+            Atualizar
+
+        </button>
+
+        <button id="btnLogout">
+
+            Sair
+
+        </button>
+
+    </div>
+
+  <h2>
+
+    ✓ Checklists Enviados
+
+</h2>
+
+<div id="listaChecklists">
+
+    Carregando...
+
+</div>
+
+</div>
+
+<div id="modalDetalhes" class="modal">
+
+    <div class="modal-content modal-grande">
+
+        <h2>
+
+            Detalhes do Checklist
+
+        </h2>
+
+        <div id="conteudoDetalhes">
+
+        </div>
+
+        <button id="fecharDetalhes">
+
+            Fechar
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="../js/gerente.js"></script>
+
+</body>
+
+</html>
