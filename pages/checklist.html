@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-<title>Checklist Diário</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet"
-      href="../style/style-checklist.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Checklist Diário</title>
+
+    <link rel="stylesheet"
+          href="../style/style-checklist.css">
+
 </head>
 
 <body>
@@ -37,70 +39,23 @@
 
             </div>
 
-          <div class="barra">
+            <div class="barra">
 
                 <div id="barraProgresso"></div>
 
                 <span id="textoProgresso">
-                        0%
+                    0%
                 </span>
 
             </div>
 
         </div>
 
-
         <div id="listaChecklist">
 
         </div>
 
         <div class="extras">
-
-            <h2>
-                Fechamento do Turno
-            </h2>
-
-         <div id="blocoMetas">
-
-    <div class="campo">
-
-        <label>
-            Total de Vitaminas / Marcas Exclusivas Vendidas
-        </label>
-
-        <input
-            type="number"
-            id="vitaminasVendidas"
-            min="0"
-            value="0">
-
-    </div>
-
-    <div class="campo">
-
-        <label>
-            Meta de Genéricos Atingida?
-        </label>
-
-        <select id="metaGenericos">
-
-            <option value="">
-                Selecione...
-            </option>
-
-            <option value="Sim">
-                Sim
-            </option>
-
-            <option value="Nao">
-                Não
-            </option>
-
-        </select>
-
-    </div>
-
-</div>   
 
             <div class="campo">
 
@@ -117,17 +72,60 @@
 
         </div>
 
-        <button id="btnEnviar">
+        <div class="botoes-final">
 
-            Enviar
+            <button id="btnEnviar">
+                Enviar
+            </button>
 
-        </button>
+            <button id="btnSenha">
+                Atualizar Senha
+            </button>
 
-        <button id="btnLogout">
+            <button id="btnLogout">
+                Sair
+            </button>
 
-        Sair
+        </div>
 
-    </button>
+    </div>
+
+</div>
+
+<div id="modalSenha" class="modal">
+
+    <div class="modal-content">
+
+        <h2>
+            Atualizar Senha
+        </h2>
+
+        <input
+            type="password"
+            id="senhaAtual"
+            placeholder="Senha atual">
+
+        <input
+            type="password"
+            id="novaSenha"
+            placeholder="Nova senha">
+
+        <input
+            type="password"
+            id="confirmarSenha"
+            placeholder="Confirmar nova senha">
+
+        <div class="modal-buttons">
+
+            <button id="salvarSenha">
+                Salvar
+            </button>
+
+            <button id="fecharSenha">
+                Cancelar
+            </button>
+
+        </div>
 
     </div>
 

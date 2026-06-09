@@ -1,3 +1,5 @@
+console.log("gerente.js carregou");
+
 const lista =
 document.getElementById(
 "listaChecklists"
@@ -20,19 +22,20 @@ supabaseClient
 .from("checklists")
 .select("*");
 
-const hoje =
-new Date();
-
 if(
     filtro === "hoje"
 ){
+
+    const hoje =
+    new Date()
+    .toLocaleDateString(
+        "en-CA"
+    );
 
     query =
     query.eq(
         "data_checklist",
         hoje
-        .toISOString()
-        .split("T")[0]
     );
 
 }
@@ -80,6 +83,10 @@ await query.order(
         ascending:false
     }
 );
+
+console.log("CHECKLISTS:");
+console.log(data);
+console.log(error);
 
 if(error){
 
@@ -457,3 +464,146 @@ btnLogout.addEventListener(
 }
 
 carregarChecklists();
+
+const modalReset =
+document.getElementById(
+    "modalResetSenha"
+);
+
+console.log(
+    document.getElementById("btnResetSenha")
+);
+
+console.log(
+    document.getElementById("modalResetSenha")
+);
+
+async function carregarFuncionariosSenha(){
+
+    const { data, error } =
+    await supabaseClient
+    .from("funcionarios")
+    .select("id,nome")
+    .order("nome");
+
+    if(error){
+
+        console.error(error);
+
+        alert(
+            "Erro ao carregar funcionários."
+        );
+
+        return;
+
+    }
+
+    const selectReset =
+    document.getElementById(
+        "funcionarioReset"
+    );
+
+    if(!selectReset){
+
+        console.error(
+            "funcionarioReset não encontrado."
+        );
+
+        return;
+
+    }
+
+    selectReset.innerHTML = "";
+
+    data.forEach(funcionario => {
+
+        const option =
+        document.createElement("option");
+
+        option.value =
+        funcionario.id;
+
+        option.textContent =
+        funcionario.nome;
+
+        selectReset.appendChild(
+            option
+        );
+
+    });
+
+}
+
+document
+.getElementById(
+    "btnResetSenha"
+)
+.addEventListener(
+    "click",
+    async () => {
+
+        await carregarFuncionariosSenha();
+
+        modalReset.style.display =
+        "flex";
+
+    }
+);
+
+document
+.getElementById(
+    "fecharReset"
+)
+.addEventListener(
+    "click",
+    () => {
+
+        modalReset.style.display =
+        "none";
+
+    }
+);
+
+document
+.getElementById(
+    "confirmarReset"
+)
+.addEventListener(
+    "click",
+    async () => {
+
+        const funcionarioId =
+        document.getElementById(
+            "funcionarioReset"
+        ).value;
+
+        const { error } =
+        await supabaseClient
+        .from("funcionarios")
+        .update({
+            senha:"123456"
+        })
+        .eq(
+            "id",
+            funcionarioId
+        );
+
+        if(error){
+
+            alert(
+                "Erro ao resetar senha."
+            );
+
+            return;
+
+        }
+
+        alert(
+            "Senha redefinida para 123456."
+        );
+
+        modalReset.style.display =
+        "none";
+
+    }
+);
