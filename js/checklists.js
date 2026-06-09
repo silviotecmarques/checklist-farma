@@ -358,6 +358,27 @@ Math.round(
     totalTarefas
 );
 
+const respondidas =
+document.querySelectorAll(
+    ".avaliacao:checked"
+).length;
+
+const percentualConclusao =
+Math.round(
+    (respondidas / totalTarefas)
+    * 100
+);
+
+if(percentualConclusao < 100){
+
+    alert(
+        "Responda todas as perguntas antes de enviar."
+    );
+
+    return;
+
+}
+
 const observacoes =
 document.getElementById(
     "observacoes"
