@@ -1,3 +1,68 @@
+(async ()=>{
+
+    const tokenGerente =
+    localStorage.getItem(
+        "tokenGerente"
+    );
+
+    if(!tokenGerente){
+
+        alert(
+            "Acesso negado."
+        );
+
+        window.location.href =
+        "../index.html";
+
+        return;
+
+    }
+
+    const { data, error } =
+    await supabaseClient
+    const { data } =
+await supabaseClient
+.rpc(
+    "validar_token_gerente",
+    {
+        token_recebido:
+        tokenGerente
+    }
+);
+
+if(!data){
+
+    localStorage.removeItem(
+        "tokenGerente"
+    );
+
+    window.location.href =
+    "../index.html";
+
+}
+
+    if(
+        error ||
+        !data
+    ){
+
+        localStorage.removeItem(
+            "tokenGerente"
+        );
+
+        alert(
+            "Sessão inválida."
+        );
+
+        window.location.href =
+        "../index.html";
+
+        return;
+
+    }
+
+})();
+
 console.log("gerente.js carregou");
 
 const lista =
@@ -567,10 +632,21 @@ document.getElementById(
 if(btnLogout){
 
 btnLogout.addEventListener(
-    "click",
-    () => {
+    async () => {
 
-        localStorage.clear();
+        await supabaseClient
+        .from("gerente")
+        .update({
+            token:null
+        })
+        .eq(
+            "usuario",
+            "gerente"
+        );
+
+        localStorage.removeItem(
+            "tokenGerente"
+        );
 
         window.location.href =
         "../index.html";

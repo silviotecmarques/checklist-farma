@@ -203,28 +203,77 @@ document
 )
 .addEventListener(
     "click",
-    () => {
+    async () => {
 
         const senha =
         document.getElementById(
             "senhaGerente"
         ).value;
 
+        const { data, error } =
+await supabaseClient
+.rpc(
+    "verificar_senha_gerente",
+    {
+        senha_digitada: senha
+    }
+);
         if(
-            senha ===
-            "Admin@2026"
+            error ||
+            !data
         ){
 
-            window.location.href =
-            "pages/gerente.html";
+            alert(
+                "Erro ao localizar gerente."
+            );
 
-        }else{
+            return;
+
+        }
+
+        if(
+    !data ||
+    data.length === 0
+)
+{
+    alert("Senha incorreta.");
+    return;
+}{
 
             alert(
                 "Senha incorreta."
             );
 
+            return;
+
         }
+
+        const tokenGerente =
+        crypto.randomUUID();
+
+        await supabaseClient
+        .from("gerente")
+        .update({
+
+            token:
+            tokenGerente
+
+        })
+        .eq(
+            "id",
+            data.id
+        );
+
+        localStorage.setItem(
+
+            "tokenGerente",
+
+            tokenGerente
+
+        );
+
+        window.location.href =
+        "pages/gerente.html";
 
     }
 );
