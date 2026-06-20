@@ -124,7 +124,7 @@ async function enviarFotoStorage(
     await supabaseClient
     .storage
     .from(
-        "checklist-fotos"
+        "fotos-checklists"
     )
     .upload(
         nomeArquivo,
