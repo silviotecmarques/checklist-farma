@@ -250,18 +250,24 @@ document
         const tokenGerente =
         crypto.randomUUID();
 
-        await supabaseClient
-        .from("gerente")
-        .update({
+        const { error: erroToken } =
+await supabaseClient
+.from("gerente")
+.update({
 
-            token:
-            tokenGerente
+    token:
+    tokenGerente
 
-        })
-        .eq(
-            "id",
-            data[0].id
-        );
+})
+.eq(
+    "id",
+    data[0].id
+);
+
+console.log(
+"ERRO UPDATE TOKEN:",
+erroToken
+);
 
         localStorage.setItem(
 
