@@ -81,17 +81,17 @@ const funcionarios = [
     // FARMACÊUTICOS
     {
         id: 15,
-        nome: "Leiliane",
+        nome: "Dra. Leiliane",
         cargo: "Farmacêutico"
     },
     {
         id: 16,
-        nome: "Renata",
+        nome: "Dra. Renata",
         cargo: "Farmacêutico"
     },
     {
         id: 17,
-        nome: "Maryana",
+        nome: "Dra. Maryana",
         cargo: "Farmacêutico"
     },
 

@@ -322,3 +322,39 @@ h2{
     background:#dc3545;
     color:white;
 }
+
+.foto-card{
+
+    width:100px;
+    height:100px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    border:2px solid #333;
+
+    cursor:pointer;
+
+    margin:10px auto;
+
+}
+
+.foto-card-vazia{
+
+    width:100px;
+    height:100px;
+
+    margin:10px auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:50px;
+
+    border:2px solid #333;
+
+    border-radius:15px;
+
+}

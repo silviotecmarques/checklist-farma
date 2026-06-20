@@ -169,6 +169,26 @@ console.log(
             ${item.funcionario_nome}
         </h3>
 
+        ${
+            item.foto_url
+            ?
+
+            `
+            <img
+            src="https://SEU-PROJETO.supabase.co/storage/v1/object/public/checklist-fotos/${item.foto_url}"
+            class="foto-card"
+            onclick="abrirFoto('${item.foto_url}')">
+            `
+
+            :
+
+            `
+            <div class="foto-card-vazia">
+            📷
+            </div>
+            `
+            }
+
         <p>
             Cargo: ${item.cargo}
         </p>

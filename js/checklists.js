@@ -232,11 +232,15 @@ if(texto){
 document
 .getElementById("btnEnviar")
 .addEventListener(
-"click",
-salvarChecklist
+    "click",
+    () => {
+
+        abrirCamera();
+
+    }
 );
 
-async function salvarChecklist(){
+async function continuarEnvioChecklist(){
 
 const hoje =
 new Date()
@@ -395,6 +399,38 @@ const horaChecklist =
 agora.toTimeString()
 .split(" ")[0];
 
+if(!fotoSelecionada){
+
+    alert(
+        "Foto obrigatória."
+    );
+
+    return;
+
+}
+
+let fotoUrl = null;
+
+try{
+
+    fotoUrl =
+    await enviarFotoStorage(
+        fotoSelecionada,
+        usuario.id
+    );
+
+}catch(error){
+
+    console.error(error);
+
+    alert(
+        "Erro ao enviar foto."
+    );
+
+    return;
+
+}
+
 const { error } =
 await supabaseClient
 .from("checklists")
@@ -408,6 +444,9 @@ await supabaseClient
 
     cargo:
     usuario.cargo,
+
+    foto_url:
+    fotoUrl,
 
     data_checklist:
     dataChecklist,
