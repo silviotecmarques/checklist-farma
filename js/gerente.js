@@ -153,41 +153,60 @@ console.log(
 
     }
 
-    data.forEach(item => {
+    
 
-        const card =
-        document.createElement(
-            "div"
+    for (const item of data) {
+
+    let fotoUrl = null;
+
+    if (item.foto_url) {
+
+        const { data: fotoData } =
+        await supabaseClient
+        .storage
+        .from("fotos-checklists")
+        .createSignedUrl(
+            item.foto_url,
+            3600
         );
 
-        card.className =
-        "card-checklist";
+        fotoUrl =
+        fotoData?.signedUrl;
+    }
 
-        card.innerHTML = `
+    const card =
+    document.createElement(
+        "div"
+    );
+
+    card.className =
+    "card-checklist";
+
+    card.innerHTML = `
 
         <h3>
             ${item.funcionario_nome}
         </h3>
 
         ${
-            item.foto_url
+            fotoUrl
+
             ?
 
             `
             <img
-            src="https://SEU-PROJETO.supabase.co/storage/v1/object/public/checklist-fotos/${item.foto_url}"
-            class="foto-card"
-            onclick="abrirFoto('${item.foto_url}')">
+            src="${fotoUrl}"
+            class="foto-card">
             `
 
             :
 
             `
             <div class="foto-card-vazia">
-            📷
+                📷
             </div>
             `
-            }
+        }
 
         <p>
             Cargo: ${item.cargo}
@@ -221,13 +240,13 @@ console.log(
 
         </div>
 
-        `;
+    `;
 
-        lista.appendChild(
-            card
-        );
+    lista.appendChild(
+        card
+    );
 
-    });
+}
 
 }
 
