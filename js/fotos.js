@@ -15,13 +15,17 @@ document.getElementById(
     "btnCapturar"
 );
 
+console.log(video);
+console.log(canvas);
+console.log(btnCapturar);
+
 let streamAtual = null;
 
 async function abrirCamera(){
 
     document.getElementById(
         "cameraContainer"
-    ).style.display = "block";
+    ).style.display = "flex";
 
     try{
 
@@ -30,9 +34,7 @@ async function abrirCamera(){
         .getUserMedia({
 
             video:{
-                facingMode:{
-                    ideal:"environment"
-                }
+                facingMode:"user"
             }
 
         });
@@ -53,64 +55,66 @@ async function abrirCamera(){
 }
 
 btnCapturar.addEventListener(
-"click",
-() => {
+    "click",
+    () => {
 
-    canvas.width =
-    video.videoWidth;
+        canvas.width =
+        video.videoWidth;
 
-    canvas.height =
-    video.videoHeight;
+        canvas.height =
+        video.videoHeight;
 
-    const ctx =
-    canvas.getContext(
-        "2d"
-    );
+        const ctx =
+        canvas.getContext(
+            "2d"
+        );
 
-    ctx.drawImage(
-        video,
-        0,
-        0
-    );
+        ctx.drawImage(
+            video,
+            0,
+            0
+        );
 
-    canvas.toBlob(
+        canvas.toBlob(
 
-        blob => {
+            blob => {
 
-            fotoSelecionada =
-            blob;
+                fotoSelecionada =
+                blob;
 
-            if(streamAtual){
+                if(streamAtual){
 
-                streamAtual
-                .getTracks()
-                .forEach(
-                    track =>
-                    track.stop()
-                );
+                    streamAtual
+                    .getTracks()
+                    .forEach(
+                        track =>
+                        track.stop()
+                    );
 
-            }
+                }
 
-            document.getElementById(
-                "cameraContainer"
-            ).style.display =
-            "none";
+                document.getElementById(
+                    "cameraContainer"
+                ).style.display =
+                "none";
 
-            continuarEnvioChecklist();
+                continuarEnvioChecklist();
 
-        },
+            },
 
-        "image/jpeg",
+            "image/jpeg",
 
-        0.9
+            0.9
 
-    );
+        );
 
-});
+    }
+
+);
 
 async function enviarFotoStorage(
-arquivo,
-funcionarioId
+    arquivo,
+    funcionarioId
 ){
 
     const nomeArquivo =

@@ -51,9 +51,7 @@
 
         </div>
 
-        <div id="listaChecklist">
-
-        </div>
+        <div id="listaChecklist"></div>
 
         <div class="extras">
 
@@ -91,6 +89,8 @@
     </div>
 
 </div>
+
+<!-- MODAL SENHA -->
 
 <div id="modalSenha" class="modal">
 
@@ -131,28 +131,28 @@
 
 </div>
 
-<div id="cameraContainer" style="display:none;">
+<!-- MODAL CAMERA -->
 
-    <video
-        id="camera"
-        autoplay
-        playsinline
-        width="100%"
-        style="border-radius:20px;">
-    </video>
+<div id="cameraContainer">
 
-    <canvas
-        id="canvas"
-        style="display:none;">
-    </canvas>
+    <div class="modal-content">
 
-    <button id="btnCapturar">
-        Tirar Foto
-    </button>
+        <video
+            id="camera"
+            autoplay
+            playsinline>
+        </video>
 
-    <button id="btnCancelarFoto">
-        Cancelar
-    </button>
+        <canvas
+            id="canvas"
+            style="display:none;">
+        </canvas>
+
+        <button id="btnCapturar">
+            Tirar Foto
+        </button>
+
+    </div>
 
 </div>
 
