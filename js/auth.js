@@ -211,16 +211,19 @@ document
         ).value;
 
         const { data, error } =
-await supabaseClient
-.rpc(
-    "verificar_senha_gerente",
-    {
-        senha_digitada: senha
-    }
-);
+        await supabaseClient
+        .rpc(
+            "verificar_senha_gerente",
+            {
+                senha_digitada: senha
+            }
+        );
+
+        console.log(data);
+        console.log(error);
+
         if(
-            error ||
-            !data
+            error
         ){
 
             alert(
@@ -232,13 +235,9 @@ await supabaseClient
         }
 
         if(
-    !data ||
-    data.length === 0
-)
-{
-    alert("Senha incorreta.");
-    return;
-}{
+            !data ||
+            data.length === 0
+        ){
 
             alert(
                 "Senha incorreta."
@@ -261,7 +260,7 @@ await supabaseClient
         })
         .eq(
             "id",
-            data.id
+            data[0].id
         );
 
         localStorage.setItem(

@@ -20,26 +20,23 @@
 
     const { data, error } =
     await supabaseClient
-    const { data } =
-await supabaseClient
-.rpc(
-    "validar_token_gerente",
-    {
-        token_recebido:
-        tokenGerente
-    }
-);
-
-if(!data){
-
-    localStorage.removeItem(
-        "tokenGerente"
+    .rpc(
+        "validar_token_gerente",
+        {
+            token_recebido:
+            tokenGerente
+        }
     );
 
-    window.location.href =
-    "../index.html";
+    console.log(
+        "TOKEN VALIDO:",
+        data
+    );
 
-}
+    console.log(
+        "ERRO TOKEN:",
+        error
+    );
 
     if(
         error ||
