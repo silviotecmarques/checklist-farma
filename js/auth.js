@@ -251,6 +251,8 @@ document
         crypto.randomUUID();
 
         const { error: erroToken } =
+
+        const { data: dadosUpdate, error: erroUpdate } =
 await supabaseClient
 .from("gerente")
 .update({
@@ -262,7 +264,23 @@ await supabaseClient
 .eq(
     "id",
     data[0].id
+)
+.select();
+
+console.log(
+"TOKEN GERADO:",
+tokenGerente
 );
+
+console.log(
+"DADOS UPDATE:",
+dadosUpdate
+);
+
+console.log(
+"ERRO UPDATE:",
+erroUpdate
+);    
 
 console.log(
 "ERRO UPDATE TOKEN:",
