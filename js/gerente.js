@@ -1,64 +1,17 @@
-(async ()=>{
-
-    const tokenGerente =
+if(
     localStorage.getItem(
-        "tokenGerente"
+        "gerenteLogado"
+    ) !== "true"
+){
+
+    alert(
+        "Acesso negado."
     );
 
-    if(!tokenGerente){
+    window.location.href =
+    "../index.html";
 
-        alert(
-            "Acesso negado."
-        );
-
-        window.location.href =
-        "../index.html";
-
-        return;
-
-    }
-
-    const { data, error } =
-    await supabaseClient
-    .rpc(
-        "validar_token_gerente",
-        {
-            token_recebido:
-            tokenGerente
-        }
-    );
-
-    console.log(
-        "TOKEN VALIDO:",
-        data
-    );
-
-    console.log(
-        "ERRO TOKEN:",
-        error
-    );
-
-    if(
-        error ||
-        !data
-    ){
-
-        localStorage.removeItem(
-            "tokenGerente"
-        );
-
-        alert(
-            "Sessão inválida."
-        );
-
-        window.location.href =
-        "../index.html";
-
-        return;
-
-    }
-
-})();
+}
 
 console.log("gerente.js carregou");
 
@@ -630,20 +583,10 @@ if(btnLogout){
 
 btnLogout.addEventListener(
     "click",
-    async () => {
-
-        await supabaseClient
-        .from("gerente")
-        .update({
-            token:null
-        })
-        .eq(
-            "usuario",
-            "gerente"
-        );
+    () => {
 
         localStorage.removeItem(
-            "tokenGerente"
+            "gerenteLogado"
         );
 
         window.location.href =

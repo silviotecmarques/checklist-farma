@@ -169,12 +169,6 @@ document.getElementById(
     "modalGerente"
 );
 
-console.log(
-    document.getElementById(
-        "btnEntrarGerente"
-    )
-);
-
 document
 .getElementById(
     "btnGerente"
@@ -221,16 +215,12 @@ document
         .rpc(
             "verificar_senha_gerente",
             {
-                senha_digitada: senha
+                senha_digitada:
+                senha
             }
         );
 
-        console.log(data);
-        console.log(error);
-
-        if(
-            error
-        ){
+        if(error){
 
             alert(
                 "Erro ao localizar gerente."
@@ -253,63 +243,16 @@ document
 
         }
 
-       const tokenGerente =
-crypto.randomUUID();
+        localStorage.setItem(
 
-const {
-    data:dadosUpdate,
-    error:erroUpdate
-}
-=
-await supabaseClient
-.from("gerente")
-.update({
+            "gerenteLogado",
 
-    token:
-    tokenGerente
+            "true"
 
-})
-.eq(
-    "id",
-    data[0].id
-)
-.select();
+        );
 
-console.log(
-    "TOKEN GERADO:",
-    tokenGerente
-);
-
-console.log(
-    "DADOS UPDATE:",
-    dadosUpdate
-);
-
-console.log(
-    "ERRO UPDATE:",
-    erroUpdate
-);
-
-if(erroUpdate){
-
-    alert(
-        "Erro ao salvar sessão do gerente."
-    );
-
-    return;
-
-}
-
-localStorage.setItem(
-
-    "tokenGerente",
-
-    tokenGerente
-
-);
-
-window.location.href =
-"pages/gerente.html";
+        window.location.href =
+        "pages/gerente.html";
 
     }
 );
