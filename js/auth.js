@@ -169,6 +169,12 @@ document.getElementById(
     "modalGerente"
 );
 
+console.log(
+    document.getElementById(
+        "btnEntrarGerente"
+    )
+);
+
 document
 .getElementById(
     "btnGerente"
