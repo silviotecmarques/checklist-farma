@@ -629,6 +629,7 @@ document.getElementById(
 if(btnLogout){
 
 btnLogout.addEventListener(
+    "click",
     async () => {
 
         await supabaseClient
