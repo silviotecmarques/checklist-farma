@@ -1,4 +1,6 @@
-let fotoSelecionada = null;
+const fotosPerguntas = {};
+
+let perguntaAtual = null;
 
 const video =
 document.getElementById(
@@ -15,17 +17,16 @@ document.getElementById(
     "btnCapturar"
 );
 
-console.log(video);
-console.log(canvas);
-console.log(btnCapturar);
-
 let streamAtual = null;
 
-async function abrirCamera(){
+async function abrirCamera(indice){
+
+    perguntaAtual = indice;
 
     document.getElementById(
         "cameraContainer"
-    ).style.display = "flex";
+    ).style.display =
+    "flex";
 
     try{
 
@@ -34,7 +35,9 @@ async function abrirCamera(){
         .getUserMedia({
 
             video:{
-                facingMode:"user"
+
+                facingMode:"environment"
+
             }
 
         });
@@ -55,7 +58,9 @@ async function abrirCamera(){
 }
 
 btnCapturar.addEventListener(
+
     "click",
+
     () => {
 
         canvas.width =
@@ -79,8 +84,9 @@ btnCapturar.addEventListener(
 
             blob => {
 
-                fotoSelecionada =
-                blob;
+                fotosPerguntas[
+                    perguntaAtual
+                ] = blob;
 
                 if(streamAtual){
 
@@ -98,7 +104,16 @@ btnCapturar.addEventListener(
                 ).style.display =
                 "none";
 
-                continuarEnvioChecklist();
+                const status =
+                document.getElementById(
+                    `statusFoto${perguntaAtual}`
+                );
+
+                if(status){
+
+                    status.classList.add("ok");
+
+                }
 
             },
 
@@ -118,7 +133,7 @@ async function enviarFotoStorage(
 ){
 
     const nomeArquivo =
-    `${funcionarioId}_${Date.now()}.jpg`;
+    `${funcionarioId}_${Date.now()}_${Math.random().toString(36).substring(2,8)}.jpg`;
 
     const { error } =
     await supabaseClient

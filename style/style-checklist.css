@@ -363,3 +363,76 @@ input{
     cursor:pointer;
 
 }
+
+
+/* ===========================
+   BOTÃO FOTO
+=========================== */
+
+.foto-pergunta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:12px;
+
+}
+
+.btnFotoPergunta{
+
+    background:linear-gradient(135deg,#1e88e5,#1565c0);
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px 20px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.18);
+
+}
+
+.btnFotoPergunta:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
+
+    background:linear-gradient(135deg,#2196f3,#1976d2);
+
+}
+
+.btnFotoPergunta:active{
+
+    transform:scale(.97);
+
+}
+
+.statusFoto{
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#666;
+
+}
+
+.statusFoto.ok{
+
+    color:#16a34a;
+
+}

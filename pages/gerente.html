@@ -42,32 +42,34 @@
         </select>
 
         <button id="btnAtualizar">
-    Atualizar
-</button>
+            Atualizar
+        </button>
 
-<button id="btnResetSenha">
-    Reset Senha
-</button>
+        <button id="btnResetSenha">
+            Reset Senha
+        </button>
 
-<button id="btnLogout">
-    Sair
-</button>
+        <button id="btnLogout">
+            Sair
+        </button>
 
     </div>
 
-  <h2>
+    <h2>
 
-    ✓ Checklists Enviados
+        ✓ Checklists Enviados
 
-</h2>
+    </h2>
 
-<div id="listaChecklists">
+    <div id="listaChecklists">
 
-    Carregando...
+        Carregando...
+
+    </div>
 
 </div>
 
-</div>
+<!-- MODAL DETALHES -->
 
 <div id="modalDetalhes" class="modal">
 
@@ -93,27 +95,59 @@
 
 </div>
 
-<!-- RESET SENHA -->
+<!-- MODAL RESET SENHA -->
 
 <div id="modalResetSenha" class="modal">
 
     <div class="modal-content">
 
-        <h2>Resetar Senha</h2>
+        <h2>
 
-        <select id="funcionarioReset"></select>
+            Resetar Senha
+
+        </h2>
+
+        <select id="funcionarioReset">
+
+        </select>
 
         <div class="modal-buttons">
 
             <button id="confirmarReset">
+
                 Resetar para 123456
+
             </button>
 
             <button id="fecharReset">
+
                 Fechar
+
             </button>
 
         </div>
+
+    </div>
+
+</div>
+
+<!-- MODAL FOTO -->
+
+<div id="modalFoto" class="modal">
+
+    <div class="modal-content modal-foto">
+
+        <span
+            id="fecharFoto"
+            class="fechar-modal">
+
+            ✕
+
+        </span>
+
+        <img
+            id="imagemModal"
+            src="">
 
     </div>
 
@@ -125,29 +159,15 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-<div id="modalFoto" class="modal">
+<script src="../js/gerente-auth.js"></script>
 
-    <div class="modal-content">
+<script src="../js/gerente-load.js"></script>
 
-        <img
-        id="imagemAmpliada"
-        style="
-        width:100%;
-        border-radius:15px;
-        ">
+<script src="../js/gerente-details.js"></script>
 
-        <button
-        onclick="
-        document.getElementById(
-        'modalFoto'
-        ).style.display='none'
-        ">
-            Fechar
-        </button>
+<script src="../js/gerente-pdf.js"></script>
 
-    </div>
-
-</div>
+<script src="../js/gerente-password.js"></script>
 
 <script src="../js/gerente.js"></script>
 
