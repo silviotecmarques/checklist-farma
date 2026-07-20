@@ -110,8 +110,13 @@ btnCapturar.addEventListener(
                 );
 
                 if(status){
+                        status.textContent =
+                        
+                            "✅ Foto capturada";
 
-                    status.classList.add("ok");
+                        status.classList.add(
+                            "ok"
+                    );
 
                 }
 
