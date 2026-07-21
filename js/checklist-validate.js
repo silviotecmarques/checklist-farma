@@ -133,9 +133,9 @@ function inicializarValidacao(){
 
             }
 
-            salvarChecklist(
-                respostas
-            );
+            window.respostasPendentes =
+            respostas;
+            abrirCamera();
 
         }
 

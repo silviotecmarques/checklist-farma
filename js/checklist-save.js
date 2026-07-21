@@ -50,6 +50,35 @@ async function salvarChecklist(respostas){
     )
     .value;
 
+    let selfieUrl = null;
+
+try{
+
+    if(selfieFinal){
+
+        selfieUrl =
+        await enviarFotoStorage(
+
+            selfieFinal,
+
+            usuario.id
+
+        );
+
+    }
+
+}catch(error){
+
+    console.error(error);
+
+    alert(
+        "Erro ao enviar a selfie."
+    );
+
+    return;
+
+}
+
     try{
 
         for(const resposta of respostas){
@@ -100,6 +129,9 @@ async function salvarChecklist(respostas){
 
         cargo:
         usuario.cargo,
+
+        selfie_url:
+        selfieUrl,
 
         data_checklist:
         dataChecklist,

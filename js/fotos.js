@@ -2,6 +2,10 @@ const fotosPerguntas = {};
 
 let perguntaAtual = null;
 
+let selfieFinal = null;
+
+let modoCamera = "pergunta";
+
 const video =
 document.getElementById(
     "camera"
@@ -19,11 +23,17 @@ document.getElementById(
 
 let streamAtual = null;
 
-async function abrirCamera(indice){
+async function abrirCamera(indice = null){
 
     perguntaAtual = indice;
 
-    document.getElementById(
+    modoCamera =
+    indice === null
+    ? "selfie"
+    : "pergunta";
+
+    document
+    .getElementById(
         "cameraContainer"
     ).style.display =
     "flex";
@@ -31,12 +41,19 @@ async function abrirCamera(indice){
     try{
 
         streamAtual =
-        await navigator.mediaDevices
+        await navigator
+        .mediaDevices
         .getUserMedia({
 
             video:{
 
-                facingMode:"environment"
+                facingMode:
+
+                modoCamera === "selfie"
+
+                ? "user"
+
+                : "environment"
 
             }
 
@@ -84,9 +101,19 @@ btnCapturar.addEventListener(
 
             blob => {
 
-                fotosPerguntas[
-                    perguntaAtual
-                ] = blob;
+                if(
+    modoCamera === "selfie"
+){
+
+    selfieFinal = blob;
+
+}else{
+
+    fotosPerguntas[
+        perguntaAtual
+    ] = blob;
+
+}
 
                 if(streamAtual){
 
@@ -104,21 +131,33 @@ btnCapturar.addEventListener(
                 ).style.display =
                 "none";
 
-                const status =
-                document.getElementById(
-                    `statusFoto${perguntaAtual}`
-                );
+                if(
+    modoCamera === "pergunta"
+){
 
-                if(status){
-                        status.textContent =
-                        
-                            "✅ Foto capturada";
+    const status =
+    document.getElementById(
+        `statusFoto${perguntaAtual}`
+    );
 
-                        status.classList.add(
-                            "ok"
-                    );
+    if(status){
 
-                }
+        status.textContent =
+        "✅ Foto capturada";
+
+        status.classList.add(
+            "ok"
+        );
+
+    }
+
+    }else{
+
+    salvarChecklist(
+        window.respostasPendentes
+    );
+
+}
 
             },
 
