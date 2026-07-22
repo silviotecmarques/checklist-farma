@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>Checklist Farma</title>
+    <title>
 
-   <link rel="stylesheet"
-      href="style/style-login.css">
+        BellariaChecklist
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style/style-login.css">
+
+    <link
+    rel="icon"
+    href="assets/favicon.ico"
+    type="image/x-icon">    
 
 </head>
+
 <body>
 
-        <div class="login-container">
-        <div class="login-card">
+    <div class="login-container">
 
-            <h1>CHECKLIST FARMA</h1>
+        <div class="login-card fade-in">
 
-            <p>Controle Diário de Atividades</p>
+            <img
+                src="assets/logo.png"
+                class="logo"
+                alt="Logo Bellaria Tech">
+
+            <h1>
+
+                Checklist
+
+            </h1>
 
             <div class="form-group">
 
-                <label>Funcionário</label>
+                <label>
+
+                    Funcionário
+
+                </label>
 
                 <select id="funcionario">
 
                     <option value="">
+
                         Selecione...
+
                     </option>
 
                 </select>
@@ -38,7 +65,11 @@
 
             <div class="form-group">
 
-                <label>Senha</label>
+                <label>
+
+                    Senha
+
+                </label>
 
                 <input
                     type="password"
@@ -47,7 +78,9 @@
 
             </div>
 
-            <button id="btnLogin">
+            <button
+                id="btnLogin"
+                class="btn">
 
                 Entrar
 
@@ -57,13 +90,20 @@
 
             <button
                 id="btnGerente"
-                class="gerente-btn">
+                class="btn gerente-btn">
 
-                Acesso Gerente
+                Acesso Gerencial
 
             </button>
 
             <p id="mensagem"></p>
+
+            <div class="footer-login">
+
+                Powered by
+                <strong>Bellaria Tech</strong>
+
+            </div>
 
         </div>
 
@@ -71,15 +111,17 @@
 
     <!-- MODAL GERENTE -->
 
-    <div id="modalGerente" class="modal">
+    <div
+        id="modalGerente"
+        class="modal">
 
         <div class="modal-content">
 
-                <h2>
+            <h2>
 
-                    Acesso Gerencial
-            
-                </h2>
+                Acesso Gerencial
+
+            </h2>
 
             <input
                 type="password"
@@ -88,13 +130,17 @@
 
             <div class="modal-buttons">
 
-                <button id="btnEntrarGerente">
+                <button
+                    id="btnEntrarGerente"
+                    class="btn">
 
                     Entrar
 
                 </button>
 
-                <button id="btnFecharModal">
+                <button
+                    id="btnFecharModal"
+                    class="btn btn-secundario">
 
                     Cancelar
 
@@ -113,4 +159,5 @@
     <script src="js/auth.js"></script>
 
 </body>
+
 </html>

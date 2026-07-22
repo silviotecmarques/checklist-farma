@@ -1,0 +1,161 @@
+/*=========================================
+RESPONSIVIDADE
+=========================================*/
+
+@media (max-width:992px){
+
+    body{
+
+        padding:20px;
+
+    }
+
+    .container{
+
+        max-width:100%;
+
+    }
+
+    #listaChecklists{
+
+        grid-template-columns:
+
+            repeat(
+
+                auto-fill,
+
+                minmax(240px,1fr)
+
+            );
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .barra-topo{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .barra-topo select{
+
+        width:100%;
+
+    }
+
+    .barra-topo button{
+
+        width:100%;
+
+    }
+
+    h2{
+
+        font-size:22px;
+
+        text-align:center;
+
+    }
+
+    #listaChecklists{
+
+        grid-template-columns:1fr;
+
+        padding:20px;
+
+    }
+
+    .card-checklist{
+
+        padding:18px;
+
+    }
+
+    .card-checklist h3{
+
+        font-size:24px;
+
+    }
+
+    .foto-card{
+
+        width:110px;
+
+        height:110px;
+
+    }
+
+    .modal-content{
+
+        width:95%;
+
+        padding:20px;
+
+    }
+
+    .modal-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .modal-buttons button{
+
+        width:100%;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    body{
+
+        padding:10px;
+
+    }
+
+    h2{
+
+        font-size:20px;
+
+    }
+
+    .card-checklist{
+
+        padding:16px;
+
+    }
+
+    .card-checklist h3{
+
+        font-size:20px;
+
+    }
+
+    .card-checklist p{
+
+        font-size:14px;
+
+    }
+
+    .foto-card{
+
+        width:90px;
+
+        height:90px;
+
+    }
+
+}

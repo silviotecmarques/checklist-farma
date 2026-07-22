@@ -1,0 +1,95 @@
+/*=========================================
+ANIMAÇÕES
+=========================================*/
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes modalShow{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(20px)
+        scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.fade-in{
+
+    animation:
+    aparecer
+    .4s ease;
+
+}
+
+.girar{
+
+    animation:
+    girar
+    1s linear infinite;
+
+}
+
+@keyframes girar{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}

@@ -12,28 +12,40 @@ async function verDetalhes(item){
 
     let html = `
 
-        <h3>
-            ${item.funcionario_nome}
-        </h3>
+        <div class="detalhe-topo">
 
-        <p>
-            <b>Cargo:</b>
-            ${item.cargo}
-        </p>
+            <h2>
 
-        <p>
-            <b>Data:</b>
-            ${item.data_checklist}
-        </p>
+                ${item.funcionario_nome}
 
-        <p>
-            <b>Hora:</b>
-            ${item.hora_checklist}
-        </p>
+            </h2>
+
+            <p>
+
+                <strong>Cargo:</strong>
+                ${item.cargo}
+
+            </p>
+
+            <p>
+
+                <strong>Data:</strong>
+                ${item.data_checklist}
+
+            </p>
+
+            <p>
+
+                <strong>Hora:</strong>
+                ${item.hora_checklist}
+
+            </p>
+
+        </div>
 
     `;
 
-    // SELFIE DO FUNCIONÁRIO
+    // SELFIE
 
     if(item.selfie_url){
 
@@ -55,26 +67,19 @@ async function verDetalhes(item){
 
             html += `
 
-                <div
-                    style="
-                        text-align:center;
-                        margin:20px 0;
-                    ">
+                <div class="detalhe-selfie">
+
+                    <h3>
+
+                        📸 Selfie do Funcionário
+
+                    </h3>
 
                     <img
                         src="${data.signedUrl}"
-                        style="
-                            width:180px;
-                            border-radius:15px;
-                            border:3px solid #ddd;
-                            cursor:pointer;
-                        "
+                        class="foto-selfie"
 
                         onclick="abrirFoto('${data.signedUrl}')">
-
-                    <br><br>
-
-                    <b>Selfie do Funcionário</b>
 
                 </div>
 
@@ -84,7 +89,11 @@ async function verDetalhes(item){
 
     }
 
-    html += `<hr>`;
+    html += `
+
+        <hr>
+
+    `;
 
     if(item.respostas){
 
@@ -115,23 +124,23 @@ async function verDetalhes(item){
 
             html += `
 
-                <div class="detalhe-item">
+    <div class="detalhe-item">
 
-                    <strong>
+        <strong>
 
-                        ${r.tarefa}
+            ${r.tarefa}
 
-                    </strong>
+        </strong>
 
-                    <br>
+        <div class="detalhe-acoes">
 
-                    <span class="${classe}">
+            <span class="${classe}">
 
-                        ${r.resposta}
+                ${r.resposta}
 
-                    </span>
+            </span>
 
-            `;
+`;
 
             if(r.foto){
 
@@ -153,18 +162,16 @@ async function verDetalhes(item){
 
                     html += `
 
-                        <br><br>
+    <button
+        class="btnFoto"
 
-                        <button
-                            class="btnFoto"
+        onclick="abrirFoto('${data.signedUrl}')">
 
-                            onclick="abrirFoto('${data.signedUrl}')">
+        📷 Ver Evidência
 
-                            📷 Ver Evidência
+    </button>
 
-                        </button>
-
-                    `;
+`;
 
                 }
 
@@ -172,9 +179,11 @@ async function verDetalhes(item){
 
             html += `
 
-                </div>
+        </div>
 
-            `;
+    </div>
+
+`;
 
         }
 
@@ -190,17 +199,21 @@ async function verDetalhes(item){
 
         html += `
 
-            <hr>
+            <div class="detalhe-observacoes">
 
-            <b>
+                <h3>
 
-                Observações
+                    📝 Observações
 
-            </b>
+                </h3>
 
-            <br><br>
+                <p>
 
-            ${item.observacoes}
+                    ${item.observacoes}
+
+                </p>
+
+            </div>
 
         `;
 
@@ -211,6 +224,9 @@ async function verDetalhes(item){
 
     modal.style.display =
     "flex";
+
+    document.body.style.overflow =
+    "hidden";
 
 }
 
@@ -230,6 +246,44 @@ function abrirFoto(url){
     .style.display =
     "flex";
 
+    document.body.style.overflow =
+    "hidden";
+
+}
+
+function fecharModalDetalhes(){
+
+    document
+    .getElementById(
+        "modalDetalhes"
+    )
+    .style.display =
+    "none";
+
+    document.body.style.overflow =
+    "auto";
+
+}
+
+function fecharModalFoto(){
+
+    document
+    .getElementById(
+        "modalFoto"
+    )
+    .style.display =
+    "none";
+
+    document
+    .getElementById(
+        "imagemModal"
+    )
+    .src =
+    "";
+
+    document.body.style.overflow =
+    "auto";
+
 }
 
 function inicializarDetalhes(){
@@ -242,14 +296,28 @@ function inicializarDetalhes(){
 
         "click",
 
-        () => {
+        fecharModalDetalhes
 
-            document
-            .getElementById(
+    );
+
+    document
+    .getElementById(
+        "modalDetalhes"
+    )
+    .addEventListener(
+
+        "click",
+
+        (e)=>{
+
+            if(
+                e.target.id ===
                 "modalDetalhes"
-            )
-            .style.display =
-            "none";
+            ){
+
+                fecharModalDetalhes();
+
+            }
 
         }
 
@@ -263,14 +331,28 @@ function inicializarDetalhes(){
 
         "click",
 
-        () => {
+        fecharModalFoto
 
-            document
-            .getElementById(
+    );
+
+    document
+    .getElementById(
+        "modalFoto"
+    )
+    .addEventListener(
+
+        "click",
+
+        (e)=>{
+
+            if(
+                e.target.id ===
                 "modalFoto"
-            )
-            .style.display =
-            "none";
+            ){
+
+                fecharModalFoto();
+
+            }
 
         }
 

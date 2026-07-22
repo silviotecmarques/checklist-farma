@@ -1,0 +1,94 @@
+/*=========================================
+LAYOUT
+=========================================*/
+
+body{
+
+    background:
+        radial-gradient(
+
+            circle at top,
+
+            #172554 0%,
+
+            #0B0F19 45%,
+
+            #05070C 100%
+
+        );
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    padding:30px;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+}
+
+.checklist-card{
+
+    background:rgba(17,24,39,.94);
+
+    border:1px solid var(--border);
+
+    border-radius:30px;
+
+    padding:45px;
+
+    box-shadow:var(--shadow-large);
+
+    backdrop-filter:blur(18px);
+
+    animation:aparecer .45s ease;
+
+}
+
+#nomeFuncionario{
+
+    text-align:center;
+
+    font-size:46px;
+
+    font-weight:800;
+
+    color:var(--text);
+
+    margin-bottom:8px;
+
+}
+
+#cargoFuncionario{
+
+    text-align:center;
+
+    font-size:20px;
+
+    color:var(--text-secondary);
+
+    margin-bottom:35px;
+
+    font-weight:500;
+
+}
+
+.extras{
+
+    margin-top:35px;
+
+}
+
+.campo{
+
+    width:100%;
+
+}

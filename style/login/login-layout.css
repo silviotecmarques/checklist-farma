@@ -1,0 +1,112 @@
+/*=========================================
+LAYOUT LOGIN
+=========================================*/
+
+body{
+
+    background:
+        radial-gradient(
+
+            circle at top,
+
+            #172554 0%,
+
+            #0B0F19 45%,
+
+            #05070C 100%
+
+        );
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.login-container{
+
+    width:100%;
+
+    max-width:460px;
+
+    padding:25px;
+
+}
+
+.login-card{
+
+    background:rgba(17,24,39,.94);
+
+    border:1px solid var(--border);
+
+    border-radius:30px;
+
+    padding:45px;
+
+    box-shadow:var(--shadow-large);
+
+    backdrop-filter:blur(18px);
+
+    animation:aparecer .4s ease;
+
+}
+
+.logo{
+
+    width:160px;
+
+    height:auto;
+
+    display:block;
+
+    margin:0 auto 10px;
+
+}
+
+h1{
+
+    color:var(--text);
+
+    text-align:center;
+
+    font-size:36px;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    margin:0 0 25px;
+
+}
+
+h2{
+
+    color:var(--text-secondary);
+
+    text-align:center;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    margin-bottom:32px;
+
+}
+
+.footer-login{
+
+    margin-top:30px;
+
+    text-align:center;
+
+    color:var(--text-muted);
+
+    font-size:14px;
+
+}

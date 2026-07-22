@@ -1,0 +1,96 @@
+/*=========================================
+FORMULÁRIO
+=========================================*/
+
+.form-group{
+
+    margin-bottom:22px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:var(--text-secondary);
+
+    font-weight:600;
+
+}
+
+.form-group input,
+.form-group select{
+
+    width:100%;
+
+}
+
+#btnLogin{
+
+    width:100%;
+
+    margin-top:10px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+}
+
+#btnLogin:hover{
+
+    background:var(--primary-hover);
+
+}
+
+.gerente-btn{
+
+    width:100%;
+
+    margin-top:15px;
+
+    background:var(--bg-secondary);
+
+    color:var(--text);
+
+    border:1px solid var(--border);
+
+}
+
+.gerente-btn:hover{
+
+    border-color:var(--primary);
+
+    background:var(--bg-hover);
+
+}
+
+hr{
+
+    border:none;
+
+    border-top:1px solid var(--border);
+
+    margin:28px 0;
+
+}
+
+#mensagem{
+
+    margin-top:18px;
+
+    text-align:center;
+
+    color:var(--danger);
+
+    font-weight:600;
+
+    min-height:20px;
+
+}

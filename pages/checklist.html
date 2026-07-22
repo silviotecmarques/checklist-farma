@@ -5,28 +5,71 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>Checklist Diário</title>
+    <title>
 
-    <link rel="stylesheet"
-          href="../style/style-checklist.css">
+        Maxi Checklist
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../style/style-checklist.css">
+
+    <link
+    rel="icon"
+    href="../assets/favicon.ico"
+    type="image/x-icon">    
 
 </head>
 
 <body>
+
+<header class="app-header">
+
+    <div class="logo-area">
+
+        <img
+            src="../assets/logo.png"
+            alt="Logo">
+
+        <div>
+
+            <h1>
+
+                Maxi Checklist
+
+            </h1>
+
+            <span>
+
+                Sistema Inteligente de Auditoria
+
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
 
 <div class="container">
 
     <div class="checklist-card">
 
         <h1 id="nomeFuncionario">
+
             Funcionário
+
         </h1>
 
         <h3 id="cargoFuncionario">
+
             Cargo
+
         </h3>
 
         <div class="progresso-container">
@@ -34,7 +77,9 @@
             <div class="progresso-info">
 
                 <strong>
-                    Progresso:
+
+                    Progresso
+
                 </strong>
 
             </div>
@@ -44,7 +89,9 @@
                 <div id="barraProgresso"></div>
 
                 <span id="textoProgresso">
+
                     0%
+
                 </span>
 
             </div>
@@ -57,37 +104,49 @@
 
             <div class="campo">
 
-               <label>
+                <label>
 
-    <strong>
+                    <strong>
 
-        Alguma observação importante sobre o turno?
+                        Alguma observação importante sobre o turno?
 
-    </strong>
+                    </strong>
 
-    </label>
+                </label>
 
-        <textarea
-            id="observacoes"
-            rows="5"
-            placeholder="Digite aqui qualquer observação importante sobre o turno...">
-        </textarea>
+                <textarea
+                    id="observacoes"
+                    rows="5"
+                    placeholder="Digite aqui qualquer observação importante sobre o turno..."></textarea>
 
             </div>
+
         </div>
 
         <div class="botoes-final">
 
-            <button id="btnEnviar">
+            <button
+                id="btnEnviar"
+                class="btn">
+
                 Enviar
+
             </button>
 
-            <button id="btnSenha">
+            <button
+                id="btnSenha"
+                class="btn btn-secundario">
+
                 Atualizar Senha
+
             </button>
 
-            <button id="btnLogout">
+            <button
+                id="btnLogout"
+                class="btn btn-perigo">
+
                 Sair
+
             </button>
 
         </div>
@@ -98,12 +157,16 @@
 
 <!-- MODAL SENHA -->
 
-<div id="modalSenha" class="modal">
+<div
+    id="modalSenha"
+    class="modal">
 
     <div class="modal-content">
 
         <h2>
+
             Atualizar Senha
+
         </h2>
 
         <input
@@ -111,10 +174,14 @@
             id="senhaAtual"
             placeholder="Senha atual">
 
+        <br><br>
+
         <input
             type="password"
             id="novaSenha"
             placeholder="Nova senha">
+
+        <br><br>
 
         <input
             type="password"
@@ -123,12 +190,20 @@
 
         <div class="modal-buttons">
 
-            <button id="salvarSenha">
+            <button
+                id="salvarSenha"
+                class="btn">
+
                 Salvar
+
             </button>
 
-            <button id="fecharSenha">
+            <button
+                id="fecharSenha"
+                class="btn btn-secundario">
+
                 Cancelar
+
             </button>
 
         </div>
@@ -137,9 +212,11 @@
 
 </div>
 
-<!-- MODAL CAMERA -->
+<!-- MODAL CÂMERA -->
 
-<div id="cameraContainer">
+<div
+    id="cameraContainer"
+    class="modal">
 
     <div class="modal-content">
 
@@ -154,9 +231,83 @@
             style="display:none;">
         </canvas>
 
-        <button id="btnCapturar">
-            Tirar Foto
+        <button
+            id="btnCapturar"
+            class="btn">
+
+            📷 Capturar Foto
+
         </button>
+
+    </div>
+
+</div>
+
+<!-- LOADING -->
+
+<div
+    id="loadingScreen"
+    class="loading-screen">
+
+    <div class="loading-card">
+
+        <img
+            src="../assets/mascote-loading.png"
+            alt="Mascote">
+
+        <h2>
+
+            Enviando Checklist...
+
+        </h2>
+
+        <p>
+
+            Aguarde enquanto sincronizamos os dados.
+
+        </p>
+
+        <div class="loading-bar">
+
+            <div class="loading-progress">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SUCESSO -->
+
+<div
+    id="successScreen"
+    class="success-screen">
+
+    <div class="success-card">
+
+        <img
+            src="../assets/mascote-success.png"
+            alt="Mascote">
+
+        <h2>
+
+            Checklist enviado!
+
+        </h2>
+
+        <p id="textoSucesso">
+
+            Obrigado pelo seu excelente trabalho.
+
+        </p>
+
+        <div class="success-loading">
+
+            <span></span>
+
+        </div>
 
     </div>
 
@@ -175,6 +326,10 @@
 <script src="../js/checklist-progress.js"></script>
 
 <script src="../js/fotos.js"></script>
+
+<script src="../js/ui.js"></script>
+
+<script src="../js/success.js"></script>
 
 <script src="../js/checklist-save.js"></script>
 

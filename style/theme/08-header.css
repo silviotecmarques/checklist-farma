@@ -1,0 +1,65 @@
+/*=========================================
+HEADER GLOBAL
+=========================================*/
+
+.app-header{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:18px 30px;
+
+    background:rgba(17,24,39,.92);
+
+    border-bottom:1px solid var(--border);
+
+    backdrop-filter:blur(14px);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+.logo-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.logo-area img{
+
+    width:42px;
+
+}
+
+.logo-area h1{
+
+    margin:0;
+
+    font-size:24px;
+
+    color:var(--text);
+
+}
+
+.logo-area span{
+
+    display:block;
+
+    font-size:13px;
+
+    color:var(--text-muted);
+
+}

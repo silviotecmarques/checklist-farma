@@ -1,0 +1,91 @@
+/*=========================================
+PROGRESSO
+=========================================*/
+
+.progresso-container{
+
+    width:100%;
+
+    max-width:750px;
+
+    margin:40px auto;
+
+}
+
+.progresso-info{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.barra{
+
+    position:relative;
+
+    width:100%;
+
+    height:18px;
+
+    background:var(--bg-secondary);
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+#barraProgresso{
+
+    width:0;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            var(--primary),
+
+            #67E8F9
+
+        );
+
+    border-radius:999px;
+
+    transition:.35s;
+
+}
+
+#textoProgresso{
+
+    position:absolute;
+
+    top:50%;
+
+    right:14px;
+
+    transform:translateY(-50%);
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:white;
+
+}

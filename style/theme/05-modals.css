@@ -1,0 +1,113 @@
+/*=========================================
+MODAIS
+=========================================*/
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(11,15,25,.80);
+
+    backdrop-filter:blur(6px);
+
+    z-index:9999;
+
+    animation:fadeIn .25s ease;
+
+}
+
+.modal-content{
+
+    width:min(95%,550px);
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-large);
+
+    padding:30px;
+
+    box-shadow:var(--shadow-large);
+
+    animation:modalShow .25s ease;
+
+}
+
+.modal-content h2{
+
+    margin-bottom:20px;
+
+    color:var(--text);
+
+}
+
+.modal-content p{
+
+    color:var(--text-secondary);
+
+}
+
+.modal-buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    margin-top:25px;
+
+}
+
+.modal-grande{
+
+    width:min(95%,900px);
+
+}
+
+.modal-foto{
+
+    width:min(95%,900px);
+
+    text-align:center;
+
+}
+
+.modal-foto img{
+
+    max-width:100%;
+
+    max-height:80vh;
+
+    border-radius:var(--radius);
+
+}
+
+.fechar-modal{
+
+    float:right;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    color:var(--text-secondary);
+
+    transition:var(--transition);
+
+}
+
+.fechar-modal:hover{
+
+    color:var(--primary);
+
+}

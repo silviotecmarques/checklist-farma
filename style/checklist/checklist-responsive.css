@@ -1,0 +1,133 @@
+/*=========================================
+RESPONSIVIDADE
+=========================================*/
+
+@media (max-width:992px){
+
+    .checklist-card{
+
+        padding:30px;
+
+    }
+
+    #nomeFuncionario{
+
+        font-size:38px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .checklist-card{
+
+        padding:20px;
+
+        border-radius:20px;
+
+    }
+
+    #nomeFuncionario{
+
+        font-size:30px;
+
+    }
+
+    #cargoFuncionario{
+
+        font-size:18px;
+
+    }
+
+    .progresso-container{
+
+        margin:30px auto;
+
+    }
+
+    .titulo-tarefa{
+
+        font-size:16px;
+
+    }
+
+    .opcoes{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:12px;
+
+    }
+
+    .foto-pergunta{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .btnFotoPergunta{
+
+        width:100%;
+
+    }
+
+    .campo-numero{
+
+        max-width:100%;
+
+    }
+
+    .botoes-final{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .botoes-final button{
+
+        width:100%;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    #nomeFuncionario{
+
+        font-size:26px;
+
+    }
+
+    #cargoFuncionario{
+
+        font-size:16px;
+
+    }
+
+    .titulo-tarefa{
+
+        font-size:15px;
+
+    }
+
+    .checklist-card{
+
+        padding:16px;
+
+    }
+
+}

@@ -5,17 +5,56 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>Painel Gerencial</title>
+    <title>
 
-    <link rel="stylesheet"
-          href="../style/style-gerente.css">
+        Maxi Checklist - Gerente
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../style/style-gerente.css">
+    
+    <link
+    rel="icon"
+    href="../assets/favicon.ico"
+    type="image/x-icon">    
 
 </head>
 
 <body>
+
+<header class="app-header">
+
+    <div class="logo-area">
+
+        <img
+            src="../assets/logo.png"
+            alt="Logo">
+
+        <div>
+
+            <h1>
+
+                Maxi Checklist
+
+            </h1>
+
+            <span>
+
+                Sistema Inteligente de Auditoria
+
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
 
 <div class="container">
 
@@ -24,33 +63,53 @@
         <select id="filtroData">
 
             <option value="hoje">
+
                 Hoje
+
             </option>
 
             <option value="ontem">
+
                 Ontem
+
             </option>
 
             <option value="7dias">
+
                 Últimos 7 dias
+
             </option>
 
             <option value="todos">
+
                 Todos
+
             </option>
 
         </select>
 
-        <button id="btnAtualizar">
+        <button
+            id="btnAtualizar"
+            class="btn">
+
             Atualizar
+
         </button>
 
-        <button id="btnResetSenha">
+        <button
+            id="btnResetSenha"
+            class="btn btn-secundario">
+
             Reset Senha
+
         </button>
 
-        <button id="btnLogout">
+        <button
+            id="btnLogout"
+            class="btn btn-perigo">
+
             Sair
+
         </button>
 
     </div>
@@ -71,7 +130,9 @@
 
 <!-- MODAL DETALHES -->
 
-<div id="modalDetalhes" class="modal">
+<div
+    id="modalDetalhes"
+    class="modal">
 
     <div class="modal-content modal-grande">
 
@@ -85,11 +146,17 @@
 
         </div>
 
-        <button id="fecharDetalhes">
+        <div class="modal-footer">
 
-            Fechar
+    <button
+        id="fecharDetalhes"
+        class="btn btn-perigo">
 
-        </button>
+        Fechar
+
+    </button>
+
+</div>
 
     </div>
 
@@ -97,7 +164,9 @@
 
 <!-- MODAL RESET SENHA -->
 
-<div id="modalResetSenha" class="modal">
+<div
+    id="modalResetSenha"
+    class="modal">
 
     <div class="modal-content">
 
@@ -113,13 +182,17 @@
 
         <div class="modal-buttons">
 
-            <button id="confirmarReset">
+            <button
+                id="confirmarReset"
+                class="btn">
 
                 Resetar para 123456
 
             </button>
 
-            <button id="fecharReset">
+            <button
+                id="fecharReset"
+                class="btn btn-secundario">
 
                 Fechar
 
@@ -133,7 +206,9 @@
 
 <!-- MODAL FOTO -->
 
-<div id="modalFoto" class="modal">
+<div
+    id="modalFoto"
+    class="modal">
 
     <div class="modal-content modal-foto">
 
@@ -147,7 +222,8 @@
 
         <img
             id="imagemModal"
-            src="">
+            src=""
+            alt="Foto do Checklist">
 
     </div>
 

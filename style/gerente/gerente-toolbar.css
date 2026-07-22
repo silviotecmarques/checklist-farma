@@ -1,0 +1,73 @@
+/*=========================================
+TOOLBAR
+=========================================*/
+
+.barra-topo{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.barra-topo select{
+
+    width:180px;
+
+    min-width:180px;
+
+}
+
+.barra-topo button{
+
+    min-width:140px;
+
+}
+
+#btnAtualizar{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+#btnAtualizar:hover{
+
+    background:var(--primary-hover);
+
+}
+
+#btnResetSenha{
+
+    background:var(--warning);
+
+    color:#111827;
+
+}
+
+#btnResetSenha:hover{
+
+    filter:brightness(1.05);
+
+}
+
+#btnLogout{
+
+    background:var(--danger);
+
+    color:white;
+
+}
+
+#btnLogout:hover{
+
+    filter:brightness(1.08);
+
+}

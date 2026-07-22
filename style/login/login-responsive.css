@@ -1,0 +1,117 @@
+/*=========================================
+RESPONSIVIDADE
+=========================================*/
+
+@media (max-width:768px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .login-container{
+
+        padding:15px;
+
+    }
+
+    .login-card{
+
+        padding:30px 25px;
+
+        border-radius:22px;
+
+    }
+
+    .logo{
+
+        width:100px;
+
+    }
+
+    .mascote-login{
+
+        width:140px;
+
+    }
+
+    h1{
+
+        font-size:28px;
+
+    }
+
+    h2{
+
+        font-size:16px;
+
+    }
+
+    .modal-content{
+
+        width:95%;
+
+        padding:22px;
+
+    }
+
+    .modal-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .modal-buttons button{
+
+        width:100%;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    body{
+
+        padding:10px;
+
+    }
+
+    .login-card{
+
+        padding:22px 18px;
+
+    }
+
+    .logo{
+
+        width: 120px;
+
+    }
+
+    .mascote-login{
+
+        width:120px;
+
+    }
+
+    h1{
+
+        font-size:24px;
+
+    }
+
+    h2{
+
+        font-size:15px;
+
+    }
+
+    .footer-login{
+
+        font-size:12px;
+
+    }
+
+}

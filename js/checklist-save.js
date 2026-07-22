@@ -1,5 +1,7 @@
 async function salvarChecklist(respostas){
 
+    mostrarLoading();
+
     const hoje =
     new Date()
     .toISOString()
@@ -24,8 +26,11 @@ async function salvarChecklist(respostas){
         existente.length > 0
     ){
 
-        alert(
-            "Você já enviou seu checklist hoje."
+        esconderLoading();
+
+        mostrarToast(
+            "Você já enviou seu checklist hoje.",
+            "warning"
         );
 
         return;
@@ -52,32 +57,35 @@ async function salvarChecklist(respostas){
 
     let selfieUrl = null;
 
-try{
+    try{
 
-    if(selfieFinal){
+        if(selfieFinal){
 
-        selfieUrl =
-        await enviarFotoStorage(
+            selfieUrl =
+            await enviarFotoStorage(
 
-            selfieFinal,
+                selfieFinal,
 
-            usuario.id
+                usuario.id
 
+            );
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+        esconderLoading();
+
+        mostrarToast(
+            "Erro ao enviar a selfie.",
+            "error"
         );
 
+        return;
+
     }
-
-}catch(error){
-
-    console.error(error);
-
-    alert(
-        "Erro ao enviar a selfie."
-    );
-
-    return;
-
-}
 
     try{
 
@@ -108,8 +116,11 @@ try{
 
         console.error(error);
 
-        alert(
-            "Erro ao enviar uma das fotos."
+        esconderLoading();
+
+        mostrarToast(
+            "Erro ao enviar uma das fotos.",
+            "error"
         );
 
         return;
@@ -151,18 +162,17 @@ try{
 
         console.error(error);
 
-        alert(
-            "Erro ao salvar checklist."
+        esconderLoading();
+
+        mostrarToast(
+            "Erro ao salvar checklist.",
+            "error"
         );
 
         return;
 
     }
 
-    alert(
-        "Checklist enviado com sucesso!"
-    );
-
-    window.location.reload();
+    mostrarSucesso();
 
 }

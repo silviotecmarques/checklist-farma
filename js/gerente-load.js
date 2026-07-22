@@ -108,26 +108,24 @@ async function carregarChecklists(){
 
         let fotoUrl = null;
 
-if(item.selfie_url){
+        if(item.selfie_url){
 
-    const { data: fotoData } =
-    await supabaseClient
-    .storage
-    .from(
-        "fotos-checklists"
-    )
-    .createSignedUrl(
+            const { data: fotoData } =
+            await supabaseClient
+            .storage
+            .from(
+                "fotos-checklists"
+            )
+            .createSignedUrl(
 
-        item.selfie_url,
+                item.selfie_url,
 
-        3600
+                3600
 
-    );
+            );
 
-    fotoUrl =
-    fotoData?.signedUrl;
-
-}
+            fotoUrl =
+            fotoData?.signedUrl;
 
         }
 
@@ -148,26 +146,26 @@ if(item.selfie_url){
             </h3>
 
             ${
-    fotoUrl
+                fotoUrl
 
-    ?
+                ?
 
-    `
-    <img
-        src="${fotoUrl}"
-        class="foto-card">
-    `
+                `
+                <img
+                    src="${fotoUrl}"
+                    class="foto-card">
+                `
 
-    :
+                :
 
-    `
-    <div class="foto-card-vazia">
+                `
+                <div class="foto-card-vazia">
 
-        👤
+                    👤
 
-    </div>
-    `
-}
+                </div>
+                `
+            }
 
             <p>
 

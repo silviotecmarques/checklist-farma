@@ -1,0 +1,93 @@
+/*==================================================
+    BELLARIA TECH DESIGN SYSTEM
+==================================================*/
+
+@import url("01-reset.css");
+@import url("02-buttons.css");
+@import url("03-inputs.css");
+@import url("04-cards.css");
+@import url("05-modals.css");
+@import url("06-animations.css");
+@import url("07-scrollbar.css");
+@import url("theme/08-header.css");
+
+:root{
+
+    /*==============================================
+        CORES
+    ==============================================*/
+
+    --bg-primary:#0B0F19;
+    --bg-secondary:#111827;
+    --bg-card:#1A2233;
+    --bg-hover:#243045;
+
+    --primary:#38BDF8;
+    --primary-hover:#0EA5E9;
+    --primary-dark:#0284C7;
+
+    --success:#22C55E;
+    --warning:#FACC15;
+    --danger:#EF4444;
+
+    --text:#FFFFFF;
+    --text-secondary:#CBD5E1;
+    --text-muted:#94A3B8;
+
+    --border:#334155;
+
+    /*==============================================
+        TIPOGRAFIA
+    ==============================================*/
+
+    --font:
+        "Segoe UI",
+        "Inter",
+        Arial,
+        sans-serif;
+
+    --font-small:14px;
+    --font-normal:16px;
+    --font-medium:18px;
+    --font-large:22px;
+    --font-title:32px;
+
+    /*==============================================
+        BORDAS
+    ==============================================*/
+
+    --radius-small:10px;
+    --radius:16px;
+    --radius-large:24px;
+
+    /*==============================================
+        SOMBRAS
+    ==============================================*/
+
+    --shadow-small:
+        0 2px 10px
+        rgba(0,0,0,.25);
+
+    --shadow:
+        0 10px 35px
+        rgba(0,0,0,.35);
+
+    --shadow-large:
+        0 20px 60px
+        rgba(0,0,0,.45);
+
+    /*==============================================
+        ANIMAÇÕES
+    ==============================================*/
+
+    --transition:.25s ease;
+
+}
+
+::selection{
+
+    background:var(--primary);
+
+    color:white;
+
+}

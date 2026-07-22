@@ -1,0 +1,87 @@
+/*=========================================
+BOTÕES
+=========================================*/
+
+.botoes-final{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:35px;
+
+}
+
+.botoes-final button{
+
+    min-width:180px;
+
+}
+
+#btnEnviar{
+
+    background:var(--success);
+
+    color:white;
+
+}
+
+#btnEnviar:hover{
+
+    filter:brightness(1.08);
+
+}
+
+#btnSenha{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+#btnSenha:hover{
+
+    background:var(--primary-hover);
+
+}
+
+#btnLogout{
+
+    background:var(--danger);
+
+    color:white;
+
+}
+
+#btnLogout:hover{
+
+    filter:brightness(1.08);
+
+}
+
+#btnCapturar{
+
+    width:100%;
+
+    margin-top:20px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+#btnCapturar:hover{
+
+    background:var(--primary-hover);
+
+}
